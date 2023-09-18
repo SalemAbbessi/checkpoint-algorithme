@@ -1,0 +1,28 @@
+ALGORITHM AnalyseTexte
+VAR
+   i, alphabetCounter,lenghtcounter, wordcounter, vowelcounter : INTEGER :=0 ;
+    sentence, : string ;
+BEGIN
+   REPEAT
+    WRITE ("write a sentence that ends with . ");
+    READ (sentence); 
+   UNTIL ( sentence[sentence.lenght-1] == ".")
+
+
+    FOR i from 0 to (sentence.lenght-1)  STEP step do ;
+        if ( sentence[i] = " ") OR (sentence[i] == ".") THEN
+          wordcounter ++ 
+        END_IF
+        
+        if  ( UPERCASE (sentence[i]) in ( "A","E","I","O","U")) THEN            
+           vowelcounter ++
+        END_IF
+    END FOR 
+
+    lenghtcounter := sentence.lenght
+    alphabetCounter := lenghtcounter - wordcounter :
+    WRITE ("lenght of the sentence", lenghtcounter) ;
+    WRITE ("number of words in sentence", wordcounter) ;
+    WRITE ("number of vowels in the sentence", vowelcounter );
+    WRITE ("number of alphabet in the sentence", alphabetCounter );
+END
