@@ -1,0 +1,25 @@
+ALGORITHM Dot_Product
+VAR
+v1 , v2 : ARRAY_OF integer[n];
+i = INTEGER ;
+ps = INTEGER ;
+//Procedure calcul_produit calcule le produit des 2 vecteurs
+Procedure calcul_produit(v1, v2, ps)
+    ps := 0
+    FOR i FROM 0 TO (n-1) STEP 1  DO
+    ps = (v1[i] * v2[i])
+    End For
+End Procedure
+
+BEGIN
+FOR i FROM 0 TO (n-1) STEP 1  DO
+    calcul_produit(v1, v2, ps)
+    // si les produits des 2 vecteur = 0 donc ils sont orthogonaux sinon ils ne le sont pas
+    IF (ps == 0) THEN
+        WRITE ('vectors are orthogonal')
+    
+    ELSE
+        WRITE ('Vectors are not orthogonal')
+    END_IF
+END_FOR
+END

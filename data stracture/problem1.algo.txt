@@ -1,0 +1,35 @@
+ALGORITHM  sum_of_distinct_elements
+VAR
+    set1 : ARRAY_OF INTEGER[N];
+    set2 : ARRAY_OF INTEGER[M];
+    distinct_elements : ARRAY_OF INTEGER[k] :=0;
+    i, j,X ,Y : INTEGER ;
+    summ : INTEGER :=0 ;
+BEGIN
+    FOR i FROM 0 TO (set1.length-1) STEP 1  DO
+    // on appelle X "dictionnaire" qui va prendre chaque valeur de set1
+    X = set1(i)
+        IF (FOR  j min 0 max (set2.length-1) step  1
+            //si la valeur de X = la valeur de la case dans set2 alors elle est imbriquée dans "distinct_elements" 
+            (set2(j)!=X) THEN
+        distinct_elements == X ;
+            END_FOR)
+        // X prend la valeur de la prochaine case
+        X = set1(i+1)
+        else 
+         Y = set2(j)
+        IF (FOR  i min 0 max (set1.length-1) step  1
+            //si la valeur de y = la valeur de la case dans set1 alors elle est imbriquée dans "distinct_elements" 
+            (set1(i)!=Y) THEN
+        distinct_elements == Y ;
+            END_FOR)
+        // Y prend la valeur de la prochaine case
+        Y = set2(j+1)
+        END_IF
+        // faire la somme du tableau distinct_elements
+        FOR K FROM 0 TO (distinct_elements.length-1) STEP 1  DO
+            summ = summ + distinct_elements[K] ;
+        END_FOR
+    WRITE (summ) ;    
+    END_FOR
+END
