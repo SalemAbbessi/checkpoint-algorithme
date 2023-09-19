@@ -1,0 +1,20 @@
+ALGORITHM insertion_sort
+VAR
+N, i, j, element : INTEGER ;
+tab : ARRAY_OF INTEGER[N] ;
+
+BEGIN
+    FOR i FROM 0 TO N-1 STEP 1  DO
+    //choisir l'element a comparer
+    element := tab[i] ;
+    j := i-1 ;
+    //comarer l'element dans la portion selectionnée de tab de droite a gauche
+    WHILE (j>=0) and (tab[j]>element) DO
+    //decaler les valeurs plus grandes a droite 
+        tab[j] = tab[j+1] ;
+        j=j-1 ;
+    END_WHILE
+    //inserer l'element dans la position
+    tab[j+1] = element ;
+    END_FOR
+END
